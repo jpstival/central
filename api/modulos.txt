@@ -1,0 +1,2 @@
+nodemailer  = https://nodemailer.com
+mammoth     = https://www.npmjs.com/package/mammoth

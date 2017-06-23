@@ -1,41 +1,14 @@
-var express = require('express');
-//var nodemail = require('nodemailer')
+'use strict';
 
-var router = express.Router();
+// function opcoes(){
+//     this.comAnexo = comAnexo;
+//     this.semAnexo = semAnexo;
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-//     'use strict';
-//   const nodemailer = require('nodemailer');
+//     return this;
+// };
 
-//   // create reusable transporter object using the default SMTP transport
-//   let transporter = nodemailer.createTransport({
-//       host: 'smtp.gmail.com',
-//       port: 465,
-//       secure: true, // secure:true for port 465, secure:false for port 587
-//       auth: {
-//           user: 'joaopaulosstival@gmail.com',
-//           pass: '********'
-//       }
-//   });
-
-//     var mammoth = require("mammoth");
- 
-//     mammoth.convertToHtml({path: "./DIFACT.docx"})
-//     .then(function(result){
-//         var html = result.value; // The generated HTML 
-//         //console.log(html);
-//         var messages = result.messages; // Any messages, such as warnings during conversion 
-
-//     // var docxConverter = require('docx-pdf');
-    
-//     // docxConverter('./DIFACT.docx','./DIFACT.pdf',function(err,result){
-//     // if(err){
-//     //     console.log(err);
-//     // }
-//     // console.log('result'+result);
-//     // });
-//   // setup email data with unicode symbols
+// function comAnexo(){
+//     // setup email data with unicode symbols
 //   let mailOptions = {
 //       from: '"Fred Foo 👻" <joaopaulosstival@live.com>', // sender address
 //       to: 'joaopaulo@decisaosistemas.com.br, joaopaulosstival@gmail.com', // list of receivers
@@ -79,17 +52,22 @@ router.get('/', function(req, res, next) {
 //             // },
 //         ]
 //   };
+// };
 
-//   // send mail with defined transport object
-//   transporter.sendMail(mailOptions, (error, info) => {
-//       if (error) {
-//           return console.log(error);
-//       }
-//       console.log('Message %s sent: %s', info.messageId, info.response);
-//   });
-  res.render('index', { title: 'Express' });
-//   })
-// .done();
-});
+console.log('entrou semAnexo');
 
-module.exports = router;
+function semAnexo(){
+    // setup email data with unicode symbols
+  let mailOptions = {
+      from: '"Fred Foo 👻" <joaopaulosstival@live.com>', // sender address
+      to: 'joaopaulo@decisaosistemas.com.br, joaopaulosstival@gmail.com', // list of receivers
+      subject: 'Hello ✔', // Subject line
+      text: 'Hello world ?', // plain text body
+      html: '<b>Hello world ?</b>' // html body
+  };
+  console.log(mailOptions);
+  return mailOptions;
+};
+
+module.exports = semAnexo();
+//module.exports = opcoes();
