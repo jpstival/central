@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 var index = require('./routes/index');
 var users = require('./routes/users');
 var email = require('./routes/enviar-email');

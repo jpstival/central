@@ -1,17 +1,21 @@
-'use strict';
 const transporter = require('./transporter-service');
 const mailOptions = require('./mailOptions-service');
 
-console.log('entrou enviar');
+function sendMailService(){
+    this.enviar = enviar;
+    return this;
+}
 
-function enviar(){
+function enviar(host, port, secure, email, senha){
     // send mail with defined transport object
-    transporter.sendMail(mailOptions, (error, info) => {
+
+    transporter.configuracao(config)
+        .sendMail(mailOptions.semAnexo(config), (error, info) => {
         if (error) {
             return console.log(error);
         }
-        console.log('Message %s sent: %s', info.messageId, info.response);
+        resolve(console.log('Message %s sent: %s', info.messageId, info.response));
     });
 };
 
-module.exports = enviar();
+module.exports = sendMailService();

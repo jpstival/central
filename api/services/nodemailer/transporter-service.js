@@ -1,20 +1,24 @@
-'use strict';
 const nodemailer = require('nodemailer');
 
-console.log('entrou configuracao');
+function transporterService(){
+    this.configuracao = configuracao;
 
-function configuracao(){
+    return this;
+}
+
+function configuracao(config){
+    console.log(config);
   let transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true, // secure:true for port 465, secure:false for port 587
+      host: config.host,
+      port: config.port,
+      secure: config.secure, // secure:true for port 465, secure:false for port 587
       auth: {
-          user: 'joaopaulosstival@gmail.com',
-          pass: '986stival'
+          user: config.email,
+          pass: config.senha
       }
   });
-  console.log(transporter);
+
   return transporter;
 }
 
-module.exports = configuracao();
+module.exports = transporterService();
