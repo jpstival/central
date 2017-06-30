@@ -4,15 +4,15 @@ function mailOptionsService(){
     return this;
 }
 
-function semAnexo(config){
+function semAnexo(dados){
+    console.log('options '+dados);
     // setup email data with unicode symbols
-    console.log(config);
   let mailOptions = {
-      from: config.from, // sender address
-      to: config.to, // list of receivers
-      subject: config.subject, // Subject line
-      text: config.text, // plain text body
-      html: config.html // html body
+      from: dados.from, // sender address
+      to: dados.to, // list of receivers
+      subject: dados.subject, // Subject line
+      text: dados.text, // plain text body
+      html: dados.html // html body
   };
  
   return mailOptions;

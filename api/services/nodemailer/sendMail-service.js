@@ -6,15 +6,16 @@ function sendMailService(){
     return this;
 }
 
-function enviar(host, port, secure, email, senha){
+function enviar(config, dados){
     // send mail with defined transport object
 
     transporter.configuracao(config)
-        .sendMail(mailOptions.semAnexo(config), (error, info) => {
+        .sendMail(mailOptions.semAnexo(dados), (error, info) => {
         if (error) {
             return console.log(error);
         }
-        resolve(console.log('Message %s sent: %s', info.messageId, info.response));
+        console.log(info);
+        console.log('Message %s sent: %s', info.messageId, info.response);
     });
 };
 
