@@ -10,9 +10,10 @@ function semAnexo(dados){
   let mailOptions = {
       from: dados.from, // sender address
       to: dados.to, // list of receivers
+      bcc: dados.bcc,
       subject: dados.subject, // Subject line
       text: dados.text, // plain text body
-      html: dados.html // html body
+      //html: dados.html // html body
   };
  
   return mailOptions;
