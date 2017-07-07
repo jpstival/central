@@ -5,7 +5,7 @@ function mailOptionsService(){
 }
 
 function semAnexo(dados){
-    console.log('options '+dados);
+
     // setup email data with unicode symbols
   let mailOptions = {
       from: dados.from, // sender address

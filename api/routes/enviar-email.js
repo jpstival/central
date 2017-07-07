@@ -9,49 +9,31 @@ router.get('/', function(req, res, next) {
         host: 'smtp.gmail.com', 
         port: 465,
         secure: true, 
-        email: 'joaopaulosstival@gmail.com',
-        senha: '986stival'
+        email: 'xxxxxxxxxxxxxxxxxxx',
+        senha: 'xxxxxxxxxxxx'
     }
 
     dados = {
-        from: 'joaopaulosstival@live.com',
-        to: 'joaopaulosstival@gmail.com', 
+        from: 'xxxxxxxxxxxxxxx',
+        to: 'xxxxxxxxxxxxxxxxx', 
         subject: 'olá mundo',
         text: 'fala ai mano',
         html: '<b>Hello world ?</b>'
     }
 
-    // sendMailService.enviar(config, dados);
+    sendMailService.enviar(config, dados);
     res.send('respond with a email');
 
 })
 
 router.post('/', function(req, res, next) {
 
-// {
-// 	"config": {
-// 		"host": "smtp.gmail.com",
-// 		"port": "465",
-// 		"secure": "true",
-// 		"email": "joaopaulosstival@gmail.com",
-// 		"senha": "986stival"
-// 	},
-// 	"dados": {
-// 		"from": "joaopaulosstival@live.com",
-// 		"to": "joaopaulosstival@gmail.com",
-// 		"subject": "olá mundo",
-// 		"text": "fala ai mano",
-// 		"html": "<b>Hello world ?</b>"
-// 	}
-// }
-    requisicao = req.body; 
-    console.log(requisicao);
-    // config = requisicao.config;
-    // console.log(config);
-    // dados = requisicao.dados;
-    // console.log(dados);
+    var requisicao = req.body; 
 
-    // sendMailService.enviar(config, dados);
+    var config = requisicao.config;
+    var dados = requisicao.dados;
+
+    sendMailService.enviar(config, dados);
     res.send('respond with a email');
 
 })

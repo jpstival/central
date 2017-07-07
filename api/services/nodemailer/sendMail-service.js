@@ -8,7 +8,6 @@ function sendMailService(){
 
 function enviar(config, dados){
     // send mail with defined transport object
-
     transporter.configuracao(config)
         .sendMail(mailOptions.semAnexo(dados), (error, info) => {
         if (error) {
