@@ -16,6 +16,9 @@
     "morgan": "~1.8.1",
     "node-gyp": "^3.6.2",
     "nodemailer": "^4.0.1",
+    "pg": "^7.1.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.5.0",
     "serve-favicon": "~2.4.2"
   }
 }

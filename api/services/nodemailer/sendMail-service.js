@@ -1,5 +1,6 @@
 const transporter = require('./transporter-service');
 const mailOptions = require('./mailOptions-service');
+var sequelize     = require('../../DB/DB-connection');
 
 function sendMailService(){
     this.enviar = enviar;
@@ -14,9 +15,19 @@ function enviar(config, dados, res){
             res.send(error.response);
             return console.log(error);
         }
-        console.log(info);
-        console.log('Message %s sent: %s', info.messageId, info.response);
-        res.send(info.response);
+        status = info.response.substring(0,3);
+        if (status == 250) {
+            sequelize
+            .authenticate()
+            .then(() => {
+                console.log('Connection has been established successfully.');
+            })
+            .catch(err => {
+                console.error('Unable to connect to the database:', err);
+            });
+        } 
+        //console.log('Message %s sent: %s', info.messageId, info.response);
+        //res.send(info.response);
     });
 };
 

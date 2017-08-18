@@ -29,12 +29,13 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
 
     var requisicao = req.body; 
-
     var config = requisicao.config;
     var dados = requisicao.dados;
 
     sendMailService.enviar(config, dados, res);
 
+    res.send('respond with a email');
+    
 })
 
 module.exports = router;

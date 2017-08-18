@@ -1,2 +1,8 @@
 nodemailer  = https://nodemailer.com
 mammoth     = https://www.npmjs.com/package/mammoth
+
+banco de dados {
+    express node-postgres-promises
+    npm install pg-promise@5 --save
+    npm install bluebird@3 --save
+}
