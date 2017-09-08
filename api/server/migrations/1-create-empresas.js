@@ -1,23 +1,26 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('Envios', {
+    return queryInterface.createTable('empresas', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      rememail: {
+      cnpj: {
         type: Sequelize.STRING
       },
-      remnome: {
+      nome: {
         type: Sequelize.STRING
       },
-      assunto: {
+      codigo: {
         type: Sequelize.STRING
       },
-      corpo: {
+      emp: {
+        type: Sequelize.STRING
+      },
+      situacao: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -31,6 +34,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Envios');
+    return queryInterface.dropTable('empresas');
   }
 };
