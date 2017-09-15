@@ -31,8 +31,8 @@ router.post('/', function(req, res, next) {
     var requisicao = req.body; 
     var config = requisicao.config;
     var dados = requisicao.dados;
-    var anexo = requisicao.anexo;
-
+    var anexo = requisicao.dados.anexo;
+    console.log(anexo);
     sendMailService.enviar(config, dados, anexo, res);
 
     //res.send('respond with a email');

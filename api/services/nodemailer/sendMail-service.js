@@ -31,7 +31,7 @@ function enviar(config, dados, anexo, res){
                             content: anexo.content,
                         }]
                         }, {
-                            include: Envio.hasMany(anexos),
+                            include: [anexos],
                         })
                         .then(res.send('salvo com sucesso'))
                         .catch(res.send('não foi possivel salvar'));
