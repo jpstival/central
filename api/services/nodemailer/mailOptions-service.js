@@ -19,7 +19,7 @@ function semAnexo(dados){
   return mailOptions;
 };
 
-function comAnexo(dados, anexo){
+function comAnexo(dados){
     console.log('comAnexo');
         // setup email data with unicode symbols
       let mailOptions = {
@@ -31,8 +31,8 @@ function comAnexo(dados, anexo){
           //html: dados.html // html body
           attachments: [
              {   // encoded string as an attachment
-                filename: anexo.filename,
-                content: anexo.content,
+                filename: dados.anexo.filename,
+                content: dados.anexo.content,
                 encoding: 'base64'
             },
           ]

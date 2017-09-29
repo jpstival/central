@@ -1,17 +1,18 @@
 const transporter = require('./transporter-service');
 const mailOptions = require('./mailOptions-service');
 const Envio = require('../../server/models').envios;
+const Anexo = require('../../server/models').anexos;
 
 function sendMailService(){
     this.enviar = enviar;
     return this;
 }
 
-function enviar(config, dados, anexo, res){
+function enviar(config, dados, res){
     // send mail with defined transport object
-    if (anexo.filename){
+    if (dados.anexo){
         transporter.configuracao(config)
-            .sendMail(mailOptions.comAnexo(dados, anexo), (error, info) => {
+            .sendMail(mailOptions.comAnexo(dados), (error, info) => {
             if (error) {
                 res.send(error.response);
                 return console.log(error);
@@ -25,15 +26,17 @@ function enviar(config, dados, anexo, res){
                         rememail: dados.to,
                         assunto: dados.subject,
                         corpo: dados.text,
-                        anexo: true,
-                        anexos: [{
-                            filename: anexo.filename,
-                            content: anexo.content,
-                        }]
-                        }, {
-                            include: [anexos],
+                        anexo: true
                         })
-                        .then(res.send('salvo com sucesso'))
+                        .then(function(envio){
+                            return Anexo.create({
+                                envioId: envio.id,
+                                nomearquivo: dados.anexo.filename,
+                                conteudo: dados.anexo.content
+                            })
+                        }).then(
+                            res.send('produto cadastrado com sucesso')
+                        )
                         .catch(res.send('não foi possivel salvar'));
             }
         
