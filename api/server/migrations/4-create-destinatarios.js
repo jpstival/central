@@ -1,27 +1,30 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('empresas', {
+    return queryInterface.createTable('Destinatarios', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      cnpj: {
+      comunicacao_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Comunicacao',
+          key: 'id',
+          as: 'comunicacao_id',
+        },
+      },
+      destinatario: {
         type: Sequelize.STRING
       },
-      nome: {
+      tipo: {
         type: Sequelize.STRING
       },
-      codigo: {
-        type: Sequelize.STRING
-      },
-      emp: {
-        type: Sequelize.STRING
-      },
-      situacao: {
-        type: Sequelize.STRING
+      dt_hr_de_leitura: {
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +37,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('empresas');
+    return queryInterface.dropTable('Destinatarios');
   }
 };

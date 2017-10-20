@@ -1,17 +1,17 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var anexos = sequelize.define('anexos', {
+  var Anexos = sequelize.define('anexos', {
     nomearquivo: DataTypes.STRING,
     conteudo: DataTypes.TEXT
   }, { } );
 
-  anexos.associate = function(models) {
-    anexos.belongsTo(models.envios, {
-      as: 'envios',
-      foreignKey: 'envioId',
-      onDelete: 'CASCADE',
-    });
-  };
+  // anexos.associate = function(models) {
+  //   anexos.belongsTo(models.Comunicacao, {
+  //     as: 'comunicação',
+  //     foreignKey: 'comunicacao_id',
+  //     onDelete: 'CASCADE',
+  //   });
+  // };
 
-  return anexos;
+  return Anexos;
 };

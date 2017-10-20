@@ -32,7 +32,6 @@ router.post('/', function(req, res, next) {
     var config = requisicao.config;
     var dados = requisicao.dados;
 
-    console.log(anexo);
     sendMailService.enviar(config, dados, res);
 
     //res.send('respond with a email');

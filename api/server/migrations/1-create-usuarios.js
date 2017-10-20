@@ -1,37 +1,22 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('envios', {
+    return queryInterface.createTable('Usuarios', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      rememail: {
+      login: {
         type: Sequelize.STRING
       },
-      remnome: {
+      senha: {
         type: Sequelize.STRING
       },
-      assunto: {
+      nome: {
         type: Sequelize.STRING
       },
-      corpo: {
-        type: Sequelize.STRING
-      },
-      anexo: {
-        type: Sequelize.BOOLEAN
-      },
-      // empresaId: {
-      //   type: Sequelize.INTEGER,
-      //   onDelete: 'CASCADE',
-      //   references: {
-      //     model: 'empresas',
-      //     key: 'id',
-      //     as: 'empresaId',
-      //   },
-      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -43,6 +28,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('envios');
+    return queryInterface.dropTable('Usuarios');
   }
 };
