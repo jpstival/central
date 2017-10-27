@@ -7,7 +7,7 @@ function transporterService(){
 }
 
 function configuracao(config){
-
+    console.log(config)
   let transporter = nodemailer.createTransport({
       host: config.host,
       port: config.port,

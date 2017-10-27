@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('Comunicacao', {
+    return queryInterface.createTable('Comunicados', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -38,6 +38,9 @@ module.exports = {
       corpo: {
         type: Sequelize.STRING
       },
+      tipo_corpo: {
+        type: Sequelize.STRING
+      },
       retorno: {
         type: Sequelize.BOOLEAN
       },
@@ -64,6 +67,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Comunicacao');
+    return queryInterface.dropTable('Comunicados');
   }
 };

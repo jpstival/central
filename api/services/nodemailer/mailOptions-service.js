@@ -1,48 +1,34 @@
 function mailOptionsService(){
-    this.semAnexo = semAnexo;
-    this.comAnexo = comAnexo;
+    this.enviarEmail = enviarEmail;
     return this;
 }
 
-function semAnexo(dados){
-    console.log('semAnexo');
-    // setup email data with unicode symbols
-  let mailOptions = {
-      from: dados.from, // sender address
-      to: dados.to, // list of receivers
-      cc: dados.cc,
-      subject: dados.subject, // Subject line
-      text: dados.text, // plain text body
-      //html: dados.html // html body
-  };
- 
-  return mailOptions;
-};
-
-function comAnexo(dados){
-    console.log('comAnexo');
+function enviarEmail(dados){
         // setup email data with unicode symbols
-        console.log(dados.cc);
-        console.log(dados.anexo);
-      let mailOptions = {
-          from: dados.from, // sender address
-          to: dados.to, // list of receivers
-          cc: dados.cc,
-          subject: dados.subject, // Subject line
-          text: dados.text, // plain text body
-          //html: dados.html // html body
+        console.log(dados);
+    if (dados.html){
+        let mailOptions = {
+            from: dados.from, // sender address
+            to: dados.to, // list of receivers
+            cc: dados.cc,
+            bcc: dados.bcc,
+            subject: dados.subject, // Subject line
+            html: dados.html, // html body
             attachments: dados.anexo
-        //[
-
-        //      {   // encoded string as an attachment
-        //         filename: dados.anexo.filename,
-        //         content: dados.anexo.content,
-        //         encoding: 'base64'
-        //     },
-        //   ]
-      };
-     
-      return mailOptions;
-    };
+        }
+        return mailOptions;
+    } else {
+        let mailOptions = {
+            from: dados.from, // sender address
+            to: dados.to, // list of receivers
+            cc: dados.cc,
+            bcc: dados.bcc,
+            subject: dados.subject, // Subject line
+            text: dados.text, // plain text body
+            attachments: dados.anexo
+        }
+        return mailOptions;
+    }    
+};
 
 module.exports = mailOptionsService();

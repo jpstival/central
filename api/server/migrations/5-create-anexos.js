@@ -8,13 +8,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      comunicacao_id: {
+      comunicado_id: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
-          model: 'Comunicacao',
+          model: 'Comunicados',
           key: 'id',
-          as: 'comunicacao_id',
+          as: 'comunicado_id',
         },
       },
       nomearquivo: {

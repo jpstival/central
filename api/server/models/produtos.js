@@ -4,12 +4,12 @@ module.exports = function(sequelize, DataTypes) {
     nome: DataTypes.STRING
   }, {  });
 
-  // Produtos.associate = function(models) {
-  //   Produtos.hasMany(models.Comunicacao, {
-  //     foreignKey: 'comunicacao_id',
-  //     as: 'comunicacao',
-  //   });
-  // };
+  Produtos.associate = function(models) {
+    Produtos.hasMany(models.Comunicados, {
+      foreignKey: 'comunicado_id',
+      as: 'comunicado',
+    });
+  };
 
   return Produtos;
 };

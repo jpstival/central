@@ -33,9 +33,6 @@ router.post('/', function(req, res, next) {
     var dados = requisicao.dados;
 
     sendMailService.enviar(config, dados, res);
-
-    //res.send('respond with a email');
-    
 })
 
 module.exports = router;

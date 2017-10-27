@@ -6,12 +6,12 @@ module.exports = function(sequelize, DataTypes) {
     nome: DataTypes.STRING
   }, {  });
 
-  // Usuarios.associate = function(models) {
-  //   Usuarios.hasMany(models.Comunicacao, {
-  //     foreignKey: 'comunicacao_id',
-  //     as: 'comunicação',
-  //   });
-  // };
+  Usuarios.associate = function(models) {
+    Usuarios.hasMany(models.Comunicados, {
+      foreignKey: 'comunicado_id',
+      as: 'comunicado',
+    });
+  };
 
   return Usuarios;
 };

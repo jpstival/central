@@ -6,13 +6,13 @@ module.exports = function(sequelize, DataTypes) {
     dt_hr_de_leitura: DataTypes.DATE
   }, {  });
 
-  // Destinatarios.associate = function(models) {
-  //   Destinatarios.belongsTo(models.Comunicacao, {
-  //     as: 'comunicação',
-  //     foreignKey: 'comunicacao_id',
-  //     onDelete: 'CASCADE',
-  //   });
-  // };
+  Destinatarios.associate = function(models) {
+    Destinatarios.belongsTo(models.Comunicados, {
+      as: 'comunicado',
+      foreignKey: 'comunicado_id',
+      onDelete: 'CASCADE',
+    });
+  };
 
   return Destinatarios;
 };
