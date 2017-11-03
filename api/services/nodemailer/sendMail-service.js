@@ -35,7 +35,7 @@ function enviar(config, dados, res){
                         usuario_id: 1,
                         produto_id: 1,
                         rem_email: config.email,
-                        rem_nome: dados.from,
+                        rem_nome: dados.user,
                         assunto: dados.subject,
                         corpo: texto,
                         tipo_corpo: tipo,
