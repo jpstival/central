@@ -3,12 +3,17 @@ function mailOptionsService(){
     return this;
 }
 
-function enviarEmail(dados){
-        // setup email data with unicode symbols
-        console.log(dados);
+function enviarEmail(dados, config){
+    var para = dados.from;
+
+    if (config.host == 'smtplw.com.br') {
+        para = config.email
+    }
+
+    // setup email data with unicode symbols
     if (dados.html){
         let mailOptions = {
-            from: dados.from, // sender address
+            from: para, // sender address
             to: dados.to, // list of receivers
             cc: dados.cc,
             bcc: dados.bcc,
@@ -19,7 +24,7 @@ function enviarEmail(dados){
         return mailOptions;
     } else {
         let mailOptions = {
-            from: dados.from, // sender address
+            from: para, // sender address
             to: dados.to, // list of receivers
             cc: dados.cc,
             bcc: dados.bcc,

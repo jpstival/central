@@ -11,8 +11,8 @@ function sendMailService(){
 
 function enviar(config, dados, res){
     // send mail with defined transport object
-        transporter.configuracao(config)
-            .sendMail(mailOptions.enviarEmail(dados), (error, info) => {
+        transporter.configuracao(config, dados)
+            .sendMail(mailOptions.enviarEmail(dados,config), (error, info) => {
             if (error) {
                 res.send(error.response);
                 return console.log(error);
@@ -75,7 +75,7 @@ function enviar(config, dados, res){
                             return console.log('salvou todos destinatarios');
                         })
                         .then(
-                            res.send('produto cadastrado com sucesso')
+                            res.send('email enviado com sucesso')
                         )
                         .catch(res.send('não foi possivel salvar'));
             };
