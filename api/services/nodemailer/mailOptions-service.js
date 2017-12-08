@@ -11,29 +11,22 @@ function enviarEmail(dados, config){
     }
 
     // setup email data with unicode symbols
-    if (dados.html){
-        let mailOptions = {
-            from: para, // sender address
-            to: dados.to, // list of receivers
-            cc: dados.cc,
-            bcc: dados.bcc,
-            subject: dados.subject, // Subject line
-            html: dados.html, // html body
-            attachments: dados.anexo
-        }
-        return mailOptions;
+    let mailOptions = {
+        from: para, // sender address
+        to: dados.to, // list of receivers
+        cc: dados.cc,
+        bcc: dados.bcc,
+        subject: dados.subject, // Subject line
+        attachments: dados.anexo
+    }
+
+    if (dados.html) {
+        mailOptions.html= dados.html // html body
     } else {
-        let mailOptions = {
-            from: para, // sender address
-            to: dados.to, // list of receivers
-            cc: dados.cc,
-            bcc: dados.bcc,
-            subject: dados.subject, // Subject line
-            text: dados.text, // plain text body
-            attachments: dados.anexo
-        }
-        return mailOptions;
-    }    
+        mailOptions.text= dados.text // plain text body}
+    }
+    
+    return mailOptions
 };
 
 module.exports = mailOptionsService();

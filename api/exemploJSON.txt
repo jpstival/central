@@ -1,0 +1,33 @@
+{
+    "config": {
+      "usuario": "joaopaulosstival@gmail.com",
+      "senhaUsuario": "123456",
+      "produto": 1,
+      "retorno": "false",
+      "carimbo": "false",
+      "host": "smtp.gmail.com",
+      "port": "465",
+      "secure": "true",
+      "email": "joaopaulosstival@gmail.com",
+      "senha": "xxxxxxxxxxx"
+    },
+    "dados": {
+      "from": "João Paulo Stival <joaopaulosstival@gmail.com>",
+      "to": ["joaopaulosstival@gmail.com"],
+      "cc": ["joaopaulo@decisaosistemas.com.br","joaopaulosstival@live.com"],
+      "bcc":[],
+      "subject": "Difact",
+      "text": "",
+      "html": "<strong>negrito</strong>",
+      "anexo": [{
+      	"filename": "teste.txt",
+      	"content": "aGVsbG8gd29ybGQh",
+  		"encoding": "base64"
+      },
+      {
+      	"filename": "teste2.txt",
+      	"content": "aGVsbG8gd29ybGQh",
+  		"encoding": "base64"
+      }]
+    }
+}
