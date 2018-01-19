@@ -6,7 +6,10 @@ function transporterService() {
     return this;
 }
 
-function configuracao(config, dados) {
+function configuracao(req) {
+    var config = req.body.config;
+    var dados = req.body.dados;
+
     var usuario = config.email;
 
     if (config.host == 'smtplw.com.br') {
@@ -14,7 +17,6 @@ function configuracao(config, dados) {
     }
 
     if (usuario.indexOf('outlook') > 0 || usuario.indexOf('hotmail') > 0 || usuario.indexOf('live') > 0) {
-        console.log('outlook')
         let transporter = nodemailer.createTransport({
             service: "hotmail",
             auth: {
@@ -24,7 +26,6 @@ function configuracao(config, dados) {
         });
         return transporter;
     } else {
-        console.log('outros')
         let transporter = nodemailer.createTransport({
             host: config.host,
             port: config.port,

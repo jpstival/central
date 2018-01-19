@@ -3,7 +3,10 @@ function mailOptionsService(){
     return this;
 }
 
-function enviarEmail(dados, config){
+function enviarEmail(req){
+    var config = req.body.config;
+    var dados = req.body.dados;
+    
     var para = dados.from;
 
     if (config.host == 'smtplw.com.br') {

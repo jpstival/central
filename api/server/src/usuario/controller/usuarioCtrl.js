@@ -1,17 +1,21 @@
 var Usuario = require('./../../../models').Usuarios;
-console.log('entrou')
+
 module.exports = {
-	VerificaUsuario: function (config, callback) {
-		Usuario.findOne({ 
+	VerificaUsuario: function (req, callback) {
+		var config = req.body.config;
+
+		Usuario.findOne({
 			where: {
-			login: config.usuario,
-			senha: config.senhaUsuario
+				login: config.usuario,
+				senha: config.senhaUsuario
 			},
 			attributes: ['id']
-		}).then(function(result){
-			id = result.id
-			console.log('1 '+id)
-			return callback(id);
+		})
+		.then(function (result) {
+			return callback(result.id);
+		})
+		.catch(function () {
+			return callback(0);
 		});
 	}
 }
