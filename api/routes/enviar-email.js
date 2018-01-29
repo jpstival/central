@@ -23,14 +23,14 @@ router.get('/', function(req, res, next) {
 
     // sendMailService.enviar(config, dados);
     var mailgun = require("mailgun-js");
-    var api_key = 'key-e3b911b1589acfd0c76bac958ea2edee';
-    var DOMAIN = 'sandboxc5906c1aa0cf43d88cc131659414faba.mailgun.org';
+    var api_key = '';
+    var DOMAIN = '';
     var mailgun = require('mailgun-js')({apiKey: api_key, domain: DOMAIN});
     var filepath = './routes/xml.txt';
     var filepath1 = './routes/xml.txt';
     var data = {
-      from: 'Excited User <joaopaulosstival@gmail.com>',
-      to: 'joaopaulo@decisaosistemas.com.br',
+      from: '',
+      to: '',
       subject: 'Hello',
       text: 'Testing some Mailgun awesomness!',
       html: "<html>HTML version of the body</html>",
