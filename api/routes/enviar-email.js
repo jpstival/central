@@ -22,25 +22,25 @@ router.get('/', function(req, res, next) {
     // }
 
     // sendMailService.enviar(config, dados);
-    var mailgun = require("mailgun-js");
-    var api_key = '';
-    var DOMAIN = '';
-    var mailgun = require('mailgun-js')({apiKey: api_key, domain: DOMAIN});
-    var filepath = './routes/xml.txt';
-    var filepath1 = './routes/xml.txt';
-    var data = {
-      from: '',
-      to: '',
-      subject: 'Hello',
-      text: 'Testing some Mailgun awesomness!',
-      html: "<html>HTML version of the body</html>",
-      attachment: [filepath, filepath1]
-    };
+    // var mailgun = require("mailgun-js");
+    // var api_key = '';
+    // var DOMAIN = '';
+    // var mailgun = require('mailgun-js')({apiKey: api_key, domain: DOMAIN});
+    // //var filepath = './routes/xml.txt';
+    // //var filepath1 = './routes/xml.txt';
+    // var data = {
+    //   from: '',
+    //   to: '',
+    //   subject: 'Hello',
+    //   text: 'Testing some Mailgun awesomness!',
+    //   html: "<html>HTML version of the body</html>"
+    //   //attachment: [filepath, filepath1]
+    // };
     
-    mailgun.messages().send(data, function (error, body) {
-      console.log(body);
-    });
-    res.send('respond with a email');
+    // mailgun.messages().send(data, function (error, body) {
+    //   console.log(body);
+    // });
+    // res.send('respond with a email');
 
 })
 

@@ -1,4 +1,3 @@
-const nodemailer = require('./envioNodeMailer');
 const Usuario = require('../../server/src/usuario/controller/usuarioCtrl');
 const Comunicado = require('../../server/src/comunicacao/controller/comunicadoCtrl');
 
@@ -10,11 +9,16 @@ function sendMailService() {
 function enviar(req, res) {
     // send mail with defined transport object
     Usuario.VerificaUsuario(req, function (id) {
+        console.log(id)
         if (id) {
-
-            Comunicado.SalvaComunicado(req, res, id);
+            const mailGun = require('./envioMailGun');
+            console.log('entrou')
+            mailGun.enviar(req, res);
+            //Comunicado.SalvaComunicado(req, res, id);
         } else {
-            nodemailer.enviar(req,res);
+            const nodemailer = require('./envioNodeMailer');
+            console.log('errado')
+            nodemailer.enviar(req, res);
         }
     });
 };

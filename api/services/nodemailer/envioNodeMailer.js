@@ -2,8 +2,8 @@ const transporter = require('./transporter-service');
 const mailOptions = require('./mailOptions-service');
 
 module.exports = {
-    enviar: function(req){
-        transporter.configuracao(req,res)
+    enviar: function(req, res){
+        transporter.configuracao(req, res)
         .sendMail(mailOptions.enviarEmail(req), (error, info) => {
             if (error) {
                 res.send(error.response);
