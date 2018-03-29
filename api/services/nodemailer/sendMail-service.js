@@ -10,14 +10,13 @@ function enviar(req, res) {
     // send mail with defined transport object
     Usuario.VerificaUsuario(req, function (id) {
         console.log(id)
-        if (id) {
+        if (id > 0) {
             const mailGun = require('./envioMailGun');
-            console.log('entrou')
-            mailGun.enviar(req, res);
-            //Comunicado.SalvaComunicado(req, res, id);
+            mailGun.enviar(req, res, function(mailId){
+                Comunicado.SalvaComunicado(req, res, id);
+            });
         } else {
             const nodemailer = require('./envioNodeMailer');
-            console.log('errado')
             nodemailer.enviar(req, res);
         }
     });
