@@ -13,9 +13,6 @@ module.exports = {
 		})
 		.then(function (result) {
 			return callback(result.id);
-		})
-		.catch(function(){
-			return callback(0);
 		});
 	}
 }

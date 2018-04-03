@@ -1,14 +1,16 @@
 // sendMailService.enviar(config, dados);
 var mailgun = require("mailgun-js");
-var api_key = '';
-var DOMAIN = '';
+var api_key = require('./../../server/config/mailgun').api;
+var DOMAIN = require('./../../server/config/mailgun').domain;
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: DOMAIN});
 
 module.exports = {
     enviar: function (req, res, callback) {
         var config = req.body.config;
         var dados = req.body.dados;
-
+        console.log(api_key);
+        console.log(DOMAIN);
+        
         console.log(dados.from);
         var data = {
             from: dados.from,
